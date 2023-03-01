@@ -27,7 +27,6 @@ The following is an example of an HTML page using the library:
 ```html
     <html>
         <script src="./removeExternalBrackets.js"></script>
-        <script src="./repairBrackets.js"></script>
         
         <body onload="
                         let inputV = prompt('Insert a valid input');
