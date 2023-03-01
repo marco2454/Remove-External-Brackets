@@ -91,7 +91,7 @@ The space-time complexity of the given JavaScript function can be analyzed as fo
 
 Time Complexity:
 
-*   The function uses three loops to iterate through each character of the input string. Each of these loops has a worst-case time complexity of O(n),  making it a linear operation where n is the length of the input string.
+*   The function uses three loops to iterate through each character of the input string. Each of these loops has a worst-case time complexity of O(n), making it a linear operation where n is the length of the input string.
 
 Space Complexity:
 
