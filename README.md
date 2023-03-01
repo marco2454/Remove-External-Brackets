@@ -2,14 +2,21 @@
 
 **"removeExternalBrackets"** is a small library designed to remove external matching brackets on any string input.
 
-It's written entirely in JavaScript and can be used by simply calling the function from every kind of external program.
+It's written entirely in JavaScript and can be used by simply calling the function from an external program.
 
 For example, you can use the _index.html_ example file in this repository, or you can create your own web page.
 
 To use the library, import the _removeExternalBrackets.js_ file.  
-Following the structure of the function:
+The file includes two functions:
+
+1.  The first one (_removeExternalBrackets_) works only with non-pathological inputs. In case a pathological string is provided, the function returns the input string.
+2.  The second one (_repairBrackets)_ accepts pathological inputs too.
+
+Following the structure of the functions:
 
 > `string removeExternalBrackets(string inputString)`
+
+> `string repairBrackets(string inputString)`
 
 ---
 
@@ -20,32 +27,41 @@ The following is an example of an HTML page using the library:
 ```html
     <html>
         <script src="./removeExternalBrackets.js"></script>
+        <script src="./repairBrackets.js"></script>
         
-        <body onload="alert(removeExternalBrackets('((ab)'))">
+        <body onload="
+                        let inputV = prompt('Insert a valid input');
+                        alert(removeExternalBrackets(inputV));
+                        let inputI = prompt('Insert a valid or a pathological input');
+                        alert(repairBrackets(inputI));">
         </body>
     </html>
 ```
 
-<mark>Change the string of the function input with the desired one.</mark>
+<mark>Please, make sure to locate the JS file in the same directory as the HTML page, or to change the file path in the script tag.</mark>
 
 ---
 
 ## **Description**
 
-The function gets a valid string as input and returns the same string without the external matching brackets.
+The _removeExternalBrackets_ function gets a valid string as input and returns the same string without the external matching brackets.
 
 | Input | Output |
 | --- | --- |
 | `(abc)` | `abc` |
 | `((abc))` | `abc` |
 | `(abc` | `(abc` |
+| <br> |   |
 | `()` |   |
 | `(ab) (cd)` | `(ab) (cd)` |
 | `((ab) (cd))` | `(ab) (cd)` |
 | `ab(cd)` | `ab(cd)` |
 
-<mark>**If a pathological input is provided, the functions return the string in input.**  
-**Use the (FUNCTION NAME) if you want to work with pathological inputs.**</mark>
+<mark>**If a pathological input is provided, the functions return the input string unchanged.**  
+**Use the** _**repairBrackets**_ **if you want to work with pathological inputs.**</mark>
+
+In the case of a pathological string input, repairBrackets adds to the end of the string as many brackets as the difference of the number between open and closed brackets, to balance the number of brackets. In the case of inverted brackets, it adds an opposing bracket to the beginning and end of the string.  
+E.g. `ab)(ab)` => `(ab)(ab)`
 
 ---
 
