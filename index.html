@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove External Brackets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="./removeExternalBrackets.js"></script>
+    <script src="./repairBrackets.js"></script>
+
+    <style>
+        
+        button {
+            margin-top: 10px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function remove() {
+            inputValue = document.getElementById("textInput").value;
+            result = removeExternalBrackets(inputValue);
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+
+        function repair() {
+            inputValue = document.getElementById("pathologicalInput").value;
+            result = repairBrackets(inputValue);
+            document.getElementById("result2").innerHTML = "Result: " + result;
+        }
+
+    </script>
+
+    <div class="container">
+        <h1>Remove External Brackets</h1>
+        
+        <input type="text" id="textInput" class="form-control">
+        <button type="button" class="btn btn-primary" onclick="remove()" id="bottone">Remove Brackets</button>
+        
+        <p id="result"></p>
+
+        <hr>
+
+        <h1>Repair Brackets</h1>
+        
+        <input type="text" id="pathologicalInput" class="form-control">
+        <button type="button" class="btn btn-primary" onclick="repair()" id="bottone">Repair Brackets</button>
+
+        <p id="result2"></p>
+    </div>
+</body>
+</html>
